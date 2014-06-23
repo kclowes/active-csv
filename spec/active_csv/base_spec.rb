@@ -18,6 +18,15 @@ describe ActiveCSV::Base do
       expect(active_csv.name).to eq("joe")
       expect(active_csv.age).to eq("24")
     end
+
+    it "responds to a method missing" do
+      row = CSV::Row.new(["name", "age"], ["joe", "24"])
+
+      active_csv = ActiveCSV::Base.new(row)
+
+      expect(active_csv.respond_to?(:bar)).to eq(false)
+      expect(active_csv.respond_to?(:age)).to eq(true)
+    end
   end
 
   describe ".file_path" do
