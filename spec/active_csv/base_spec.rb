@@ -22,6 +22,7 @@ describe ActiveCSV::Base do
 
   describe ".file_path" do
     it "allows you to set the file path to the CSV" do
+      pending
       klass = Class.new(ActiveCSV::Base) do
         self.file_path = "foo"
       end
